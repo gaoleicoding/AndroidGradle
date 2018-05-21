@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gradle.mylibrary">
+
+
+    <application><activity android:name=".LibraryActivity" android:exported="true">
+
+        </activity>
+    </application>
+
+</manifest>

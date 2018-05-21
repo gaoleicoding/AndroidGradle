@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GradleApplication</string>
+    <string name="title">XiaoMi Application</string>
+    <string name="splash_text">大家好我是xiaomi</string>
+    <string name="custom_desc">我是来自app/src/xiaomi/res/layout路径中的activity_main.xml，不是来自aap/src/main哦。只要打flavorProdut中的xiaomi包，我就会被加载，是不是很神奇哦，我可以自定义layout和res</string>
+
+</resources>
