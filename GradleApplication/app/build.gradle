@@ -7,7 +7,7 @@ android {
         config {
             keyAlias 'key'
             keyPassword '123456'
-            storeFile file('D:/Work/Android/GitHub/gradle/GradleApplication/keystore.jks')
+            storeFile file(rootProject.getRootDir().getAbsolutePath() +'/keystore.jks')
             storePassword '123456'
         }
     }
