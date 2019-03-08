@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/gamelistlibrary" />
             <option value="$PROJECT_DIR$/mylibrary" />
             <option value="$PROJECT_DIR$/mylibrary2" />
+            <option value="$PROJECT_DIR$/router" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

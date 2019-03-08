@@ -1,3 +1,4 @@
+
 apply plugin: 'com.android.library'
 apply from: rootProject.file('module.gradle')
 
@@ -15,6 +16,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    sourceSets {
+//        main {
+//            if (isMyLibraryAsApp.toBoolean()) {
+//                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+//            } else {
+//                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+//            }
+//        }
     }
 
 }

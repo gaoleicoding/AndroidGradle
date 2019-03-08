@@ -54,6 +54,16 @@ android {
 //            res.srcDirs = ['src/main/res']
 //        }
 
+//        if (isBuildAsModule.toBoolean()) {
+//            manifest.srcFile 'src/main/release/AndroidManifest.xml'
+//            assets.srcDirs = ['src/main/assets']
+//        } else {
+//            manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+//            //在这里添加最先开始的 assets目录
+//            assets.srcDirs += ['../debug_assets']
+//            //这里添加我们公用初始化的Application的代码位置
+//            java.srcDirs+=['../debug_java']
+//        }
     }
     flavorDimensions "one"
     productFlavors {
@@ -65,7 +75,7 @@ android {
             versionCode 3
             versionName '3.0.0'
             dimension "one"
-            manifestPlaceholders = [app_name: "App1", icon: "@mipmap/icon_app1", welcome_bg:
+            manifestPlaceholders = [app_name: "腾讯", icon: "@mipmap/icon_app1", welcome_bg:
                     "@mipmap/img_app1", tint_color: "@color/color_app1", load_url: "http://www.tencent.com"]
         }
 
@@ -77,7 +87,7 @@ android {
             versionCode 2
             versionName '2.0.0'
             dimension "one"
-            manifestPlaceholders = [app_name : "App2", icon: "@mipmap/icon_app2", welcome_bg:
+            manifestPlaceholders = [app_name : "百度", icon: "@mipmap/icon_app2", welcome_bg:
                     "@mipmap/img_app2", tint_color: "@color/color_app2", load_url: "http://www.baidu.com"]
         }
         xiaomi {
@@ -88,7 +98,7 @@ android {
             versionCode 1
             versionName '1.0.0'
             dimension "one"
-            manifestPlaceholders = [app_name : "App3", icon: "@mipmap/icon_app3", welcome_bg:
+            manifestPlaceholders = [app_name : "小米", icon: "@mipmap/icon_app3", welcome_bg:
                     "@mipmap/img_app3", tint_color: "@color/color_app3", load_url: "http://www.xiaomi.com"]
         }
     }
@@ -122,6 +132,7 @@ android.applicationVariants.all { variant ->
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     compile_mylibrary(getProject())
     compile_mylibrary2(getProject())
     compile_basemodule(getProject())

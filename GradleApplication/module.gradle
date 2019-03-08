@@ -25,12 +25,9 @@ def compile_mylibrary(Project projectModule){
     println "compile_mylibrary---------------------"+projectModule.name.toString()
     println "project.compile_mylibrary---------------------"+project.isMyLibrary
     projectModule.dependencies{
-        if (Boolean.parseBoolean(project.isAllDebug) || Boolean.parseBoolean(project.isMyLibrary)) {
-            implementation project(':mylibrary')
-        } else {
-            implementation(name: 'mylibrary-debug', ext: 'aar')
-        }
 
+            implementation project(':mylibrary')
+        
     }
 }
 def compile_mylibrary2(Project projectModule){
