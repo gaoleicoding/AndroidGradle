@@ -1,0 +1,66 @@
+//操作符 << 在Gradle 4.x中被弃用，并且在Gradle 5.0 被移除了。解决办法直接去掉 << 或者使用doLast 即可解决
+//task hello << {
+//    println 'Hello'
+//}
+
+task t1 {
+    //配置代码
+    println '>>>>>> t1 configuration'
+
+    //动作代码
+    doFirst {
+        println '>>>>>> t1 execute doFirst'
+    }
+    doLast {
+        println '>>>>>> t1 execute doLast'
+    }
+}
+
+gradle.afterProject {
+    println '>>>>>> config phase: afterProject'
+}
+
+gradle.projectsEvaluated {
+    println '>>>>>> config phase: projectEvaluated'
+}
+
+//任务图
+gradle.taskGraph.whenReady {
+    println '>>>>>> config phase: taskGraph.whenReady'
+}
+
+gradle.taskGraph.beforeTask{
+    println '>>>>>> execute phase: taskGraph.beforeTask'
+}
+
+gradle.taskGraph.afterTask {
+    println ">>>>>> execute phase: taskGraph.afterTask"
+}
+
+gradle.buildFinished {
+    println '>>>>>> execute phase: buildFinished'
+}
+
+
+//先定义一个普通的java类，包含2个属性
+class Foo {
+    int age
+    String username
+
+    String toString() {
+        return "name = ${username}, age = ${age}"
+    }
+}
+//创建一个名为 foo 的Extension
+getExtensions().create("foo", Foo)
+
+//配置Extension
+foo {
+    age = 30
+    username = "hjy"
+}
+
+task testExt  {
+    //能直接通过 project 获取到自定义的 Extension
+    println project.foo
+}
