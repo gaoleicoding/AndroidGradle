@@ -8,6 +8,6 @@ repositories {
 dependencies {
     implementation gradleApi() //必须
     implementation localGroovy() //必须
-    //如果要使用android的API，需要引用这个，实现Transform的时候会用到
-    //implementation 'com.android.tools.build:gradle:3.3.0'
+    //如果要使用android的API，需要引用这个，实现Transform的时候需要用到
+    implementation 'com.android.tools.build:gradle:4.1.1'
 }

@@ -29,7 +29,7 @@ gradle.taskGraph.whenReady {
     println '>>>>>> config phase: taskGraph.whenReady'
 }
 
-gradle.taskGraph.beforeTask{
+gradle.taskGraph.beforeTask {
     println '>>>>>> execute phase: taskGraph.beforeTask'
 }
 
@@ -60,7 +60,32 @@ foo {
     username = "hjy"
 }
 
-task testExt  {
+task testExt {
     //能直接通过 project 获取到自定义的 Extension
     println project.foo
+}
+
+
+task convertToWebpTask {
+    generateWebp()
+}
+
+def generateWebp() {
+    new File(getProjectDir(), "src/main/res/drawable-xxhdpi").listFiles(new FileFilter() {
+        @Override
+        boolean accept(File pathname) {
+            return !pathname.getName().endsWith(".9.png") && (pathname.getName().endsWith(".png") || pathname.getName().endsWith(".jpeg") || pathname.getName().endsWith(".jpg"))
+        }
+    }).each { path ->
+        convertTowebp(path)
+    }
+}
+
+def convertTowebp(File path) {
+    def name = path.getName();
+    name = name.substring(0, name.indexOf("."))
+    exec {
+        commandLine 'cwebp', "${path.getAbsolutePath()}", '-q', '75', '-o', "${path.getParent()}/${name}.webp"
+    }
+    path.delete()
 }

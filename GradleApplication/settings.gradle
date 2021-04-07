@@ -1,1 +1,0 @@
-include ':app', ':mylibrary', ':mylibrary2', ':basemodule', ':gamelistlibrary', ':router'

@@ -1,4 +1,4 @@
-include ':individualplugin'
+include ':asm_plugin'
 include ':app'
 rootProject.name = "GradleDemo"
 

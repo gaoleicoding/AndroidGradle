@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
-    id 'myplugin'
-    id 'individualplugin'
+    id 'asm_lifecycle_plugin'
 }
 
 android {
