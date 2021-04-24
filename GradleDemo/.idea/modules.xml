@@ -4,8 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradleDemo.iml" filepath="$PROJECT_DIR$/.idea/modules/GradleDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GradleDemo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GradleDemo.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/standalongplugin/GradleDemo.asm_plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/standalongplugin/GradleDemo.asm_plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradleDemo.buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/GradleDemo.buildSrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/standalongplugin/GradleDemo.lifecycle_plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/standalongplugin/GradleDemo.lifecycle_plugin.iml" />
     </modules>
   </component>
 </project>

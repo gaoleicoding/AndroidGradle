@@ -9,7 +9,7 @@ class MyPlugin implements Plugin<Project> {
     public void apply(Project project) {
 
         System.out.println("========================");
-        System.out.println("hello gradle plugin!");
+        System.out.println("hello MyPlugin!");
         System.out.println("========================");
     }
 

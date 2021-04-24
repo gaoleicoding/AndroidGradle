@@ -1,15 +1,15 @@
-include ':asm_plugin'
+include ':lifecycle_plugin'
 include ':app'
 rootProject.name = "GradleDemo"
 
-gradle.settingsEvaluated {
-    println '>>>>>> init phase: settingsEvaluated'
-}
-
-gradle.projectsLoaded {
-    println '>>>>>> init phase: projectsLoaded'
-}
-
-gradle.beforeProject {
-    println '>>>>>> init phase: projectsLoaded'
-}
+//gradle.settingsEvaluated {
+//    println '>>>>>> init phase: settingsEvaluated'
+//}
+//
+//gradle.projectsLoaded {
+//    println '>>>>>> init phase: projectsLoaded'
+//}
+//
+//gradle.beforeProject {
+//    println '>>>>>> init phase: projectsLoaded'
+//}
