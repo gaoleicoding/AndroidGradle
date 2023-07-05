@@ -1,6 +1,6 @@
 include ':lifecycle_plugin'
 include ':app'
-rootProject.name = "GradleDemo"
+rootProject.name = "AndroidGradle"
 
 //gradle.settingsEvaluated {
 //    println '>>>>>> init phase: settingsEvaluated'
