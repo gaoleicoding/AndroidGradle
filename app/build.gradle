@@ -4,6 +4,10 @@ plugins {
     id 'com.gl.lifecycle'
 }
 
+def releaseTime() {
+    return new Date().format("yyyyMMddhhmmss", TimeZone.getTimeZone("UTC+08:00"))
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -28,6 +32,55 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    flavorDimensions("dimension1")
+    //多渠道打包
+    productFlavors {
+        formal {
+            dimension "dimension1"
+            //修改app名字,string资源下不能包含"app_name"
+            resValue "string", "app_name", "Gradle-正式"
+            buildConfigField "String", "SERVER_URL", '"http://cloud.xxxx/a"'
+            //修改AndroidManifest.xml部分字段(包含logo)
+            manifestPlaceholders = [CHANNEL_VALUE: "formal", app_icon: "@mipmap/ic_launcher"]
+        }
+        dev {
+            dimension "dimension1"
+            resValue "string", "app_name", "Gradle-开发"
+            buildConfigField "String", "SERVER_URL", '"http://cloud.xxxx/b"'
+            manifestPlaceholders = [CHANNEL_VALUE: "dev", app_icon: "@mipmap/ic_launcher"]
+        }
+        pre {
+            dimension "dimension1"
+            resValue "string", "app_name", "Gradle-预演"
+            buildConfigField "String", "SERVER_URL", '"http://cloud.xxxx/c"'
+            manifestPlaceholders = [CHANNEL_VALUE: "pre", app_icon: "@mipmap/ic_launcher"]
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    //输出apk名称为：渠道名_版本名_时间.apk
+                    outputFileName = "Gradle-${buildType.name}_${variant.productFlavors[0].name}_v${defaultConfig.versionName}_${releaseTime()}.apk"
+                }
+        }
+    }
+
+    sourceSets {
+        formal {
+            res.srcDirs = ['src/formal/res']
+        }
+        dev {
+            res.srcDirs = ['src/dev/res']
+        }
+        pre {
+            res.srcDirs = ['src/pre/res']
+        }
+    }
+
 }
 
 dependencies {
